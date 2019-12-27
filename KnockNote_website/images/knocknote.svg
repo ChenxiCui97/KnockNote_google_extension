@@ -1,0 +1,11 @@
+<svg width="500" height="100" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="#000000" id="canvas_background" height="102" width="502" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text font-weight="bold" transform="rotate(0.05331419035792351 250.53530883788676,51.29352569578706) matrix(3.6688418908405582,0,0,3.215884800623068,-305.78150059650267,-47.54468399212704) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_3" y="39.017893" x="84.957137" stroke-width="0" fill="#ffffff">Knock Note</text>
+ </g>
+</svg>
