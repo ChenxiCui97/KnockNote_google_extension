@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Group Chat - Knock Note</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="images/note.png"/>
+
+    <!-- Chatbox CSS
+    ================================================== -->
+    <link rel="stylesheet" href="./js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" type="text/css">
+    <link rel="stylesheet" href="./css/chat.css" type="text/css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <!-- AWS API SDK -->
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
+
+</head>
+
+<body class="ss-bg-white">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="javascript:;"  onclick="GotoIndex()">
+                        <img src="images/test.svg" alt="Homepage">
+                    </a>
+                </div>
+
+            </div>
+            <nav class="header__nav-wrap">
+                <ul class="header__nav">
+                    <li ><a href="javascript:;"  onclick="GotoIndex()" title="">Notes</a></li>
+                    <li class="current"><a href="javascript:;"  onclick="GotoGroup()"  title="">Group</a></li>
+                    <!-- <li><a href="page-about.html" title="">About</a></li> -->
+                </ul> <!-- end header__nav -->
+                <ul class="header__social">
+                    <li class="ss-pinterest">
+                        <a href="javascript:;" onclick="Logout()">
+                            <span class="">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav> <!-- end header__nav-wrap -->
+
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                <div class="entry">
+                    <div class="chat">
+                      <div class="chat-title">
+                        <h1>Group Chat</h1>
+                        <h2>knock note</h2>
+                      </div>
+                      <div class="messages">
+                        <div class="mCustomScrollbar"></div>
+                      </div>
+                      <div class="message-box">
+                        <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
+                        <button type="submit" class="message-submit" id="message-submit">Send</button>
+                      </div>
+                    </div>
+                </div>
+
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>© Copyright Typerite 2019 - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span>
+                        <span>Design by styleshout</span>
+                    </div>
+                </div>
+            </div>
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/alluse.js"></script>
+    <script src="js/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./chat.js"></script>
+
+</body>

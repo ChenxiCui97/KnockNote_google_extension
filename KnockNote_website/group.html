@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Group - Knock Note</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="shortcut icon" href="images/note.png"/>
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <!-- AWS API SDK -->
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
+
+</head>
+
+<body class="ss-bg-white">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class="s-header header">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="javascript:;"  onclick="GotoIndex()">
+                        <img src="images/test.svg" alt="Homepage">
+                    </a>
+                </div>
+
+                <!-- <div class="header__search">
+    
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="header__search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="header__search-submit" value="Search">
+                    </form>
+        
+                    <a href="#0" title="Close Search" class="header__search-close">Close</a>
+        
+                </div> -->  <!-- end header__search -->
+
+                <!-- toggles -->
+                <!-- <a href="#0" class="header__search-trigger"></a> -->
+                <!-- <a href="#0" class="header__menu-toggle"><span>Menu</span></a> -->
+
+            </div>
+
+            <nav class="header__nav-wrap">
+                <ul class="header__nav">
+                    <li ><a href="javascript:;"  onclick="GotoIndex()" title="">Notes</a></li>
+                    <li class="current"><a href="javascript:;"  onclick="GotoGroup()"  title="">Group</a></li>
+                    <!-- <li><a href="page-about.html" title="">About</a></li> -->
+                </ul> <!-- end header__nav -->
+                <ul class="header__social">
+                    <li class="ss-pinterest">
+                        <a href="javascript:;" onclick="Logout()">
+                            <span class="">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav> <!-- end header__nav-wrap -->
+
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+
+                <p class="entry__tags">
+                    <span class="entry__tag-list">
+                        <a href="#0" onclick="shwoModal('create-modal')">Create Group</a>
+                        <a href="#0" onclick="shwoModal('join-modal')">Join Group</a>
+                        <a href="#0" onclick="shwoModal('delete-modal')">Delete Group</a>
+                    </span>
+                </p>
+
+
+                <div id="create-modal" class="modal-window">
+                  <div>
+                    <a class="modal-close" onclick="model_close('create-modal')">Close</a>
+                    <h1>Create Group</h1>
+                    <div>Build your own group.</div>
+                    <small>Group Name</small>
+                    <input type="text" id="groupname">
+                    <small> Description</small>
+                    <input type="text" id="description">
+                    <a class="btn" onclick="create_group()">create</a>
+                    </div>
+                </div>
+
+                <div id="join-modal" class="modal-window">
+                  <div>
+                    <a class="modal-close" onclick="model_close('join-modal')">Close</a>
+                    <h1>Join Group</h1>
+                    <div>Join the group your like.</div>
+                    <small>Group ID</small>
+                    <input type="text" id="groupid">
+                    <a class="btn" onclick="join_group()">join</a>
+                    </div>
+                </div>
+
+                <div id="delete-modal" class="modal-window">
+                  <div>
+                    <a class="modal-close" onclick="model_close('delete-modal')">Close</a>
+                    <h1>Delete Group</h1>
+                    <div>Delete the group you build.</div>
+                    <small>Group ID</small>
+                    <input type="text" id="groupid_delete">
+                    <a class="btn" onclick="delete_group()">delete</a>
+                    </div>
+                </div>
+
+
+
+                <div class="entry__related">
+                    <h3 class="h2">My Groups</h3>
+                    <ul class="related" id="grouoplist">
+                    </ul>
+                </div> <!-- end entry related -->
+
+
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>© Copyright Typerite 2019 - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span>
+                        <span>Design by styleshout</span>
+                    </div>
+                </div>
+            </div>
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/alluse.js"></script>
+    <script src="group.js"></script>
+
+</body>

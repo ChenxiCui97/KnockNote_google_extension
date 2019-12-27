@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Knock Note</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sign.css">
+    <link rel="shortcut icon" href="images/note.png"/>
+
+    <!-- script
+    ================================================== -->
+    <!-- <script src="js/modernizr.js"></script> -->
+    <!-- AWS API SDK -->
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
+</head>
+
+<body class="ss-bg-white">
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div id="top" class="s-wrap site-wrapper">
+
+        <!-- site header
+        ================================================== -->
+        <header class=" s-header header " style="width: 500px">
+
+            <div class="header__top">
+                <div class="header__logo">
+                    <a class="site-logo" href="javascript:;"  onclick="GotoIndex()">
+                        <img src="images/test.svg" alt="Homepage">
+                    </a>
+                </div>
+
+            </div>
+
+              <img src="images/note.jpg" alt="", style="margin: 50px 4px 100px">
+        </header> <!-- end s-header -->
+
+
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <div class="form">
+                      
+                      <ul class="tab-group">
+                        <li class="tab active"><a href="#signup">Sign Up</a></li>
+                        <li class="tab"><a href="#login">Log In</a></li>
+                      </ul>
+                      
+                      <div class="tab-content">
+                        <div id="signup">   
+                          <h1 class="tab-title">Sign Up for Free</h1>
+                          
+                          <form action="#" method="#">
+                          
+                            <div class="field-wrap">
+                            <label>
+                              User Name<span class="req">*</span>
+                            </label>
+                            <input id="username" required type="text" autocomplete="off"/>
+                          </div>
+
+                          <div class="field-wrap">
+                            <label>
+                              Email Address<span class="req">*</span>
+                            </label>
+                            <input id="email_reg" required type="email" autocomplete="off"/>
+                          </div>
+                          
+                          <div class="field-wrap">
+                            <label>
+                              Set A Password<span class="req">*</span>
+                            </label>
+                            <input id="password_reg" required type="password" autocomplete="off"/>
+                          </div>
+
+                          <div class="top-row">
+                            <div class="field-wrap">
+                              <label>
+                                Verification code<span class="req">*</span>
+                              </label>
+                              <input type="text" required id="verifycode" autocomplete="off" />
+                            </div>
+                            <a class="button button-block" onclick="getVerify()">Verify</a>                        
+                          </div>
+                          
+                          <button type="button" class="button button-block" onclick="register()">Get Started</button>
+                          
+                          </form>
+
+                        </div>
+                        
+                        <div id="login">   
+                          <h1 class="tab-title">Welcome Back!</h1>
+                          
+                          <form action="/" method="#">
+                          
+                            <div class="field-wrap">
+                            <label>
+                              Email Address<span class="req">*</span>
+                            </label>
+                            <input id="email_sign" type="email" autocomplete="off"/>
+                          </div>
+                          
+                          <div class="field-wrap">
+                            <label>
+                              Password<span class="req">*</span>
+                            </label>
+                            <input id="password_sign" type="password" autocomplete="off"/>
+                          </div>
+                          
+                          <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
+                          
+                          <button type="button" class="button button-block" onclick="Sign()" />Log In</button>
+                          
+                          </form>
+
+                        </div>
+                        
+                      </div><!-- tab-content -->
+                      
+                </div> <!-- /form -->
+
+
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+
+        <!-- footer
+        ================================================== -->
+        <footer class="s-footer footer">
+            <div class="row">
+                <div class="column large-full footer__content">
+                    <div class="footer__copyright">
+                        <span>© Copyright Typerite 2019 - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></span>
+                        <span>Design by styleshout</span>
+                    </div>
+                </div>
+            </div>
+            <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </footer>
+
+    </div> <!-- end s-wrap -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="sign.js"></script>
+
+</body>
